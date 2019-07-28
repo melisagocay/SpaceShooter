@@ -33,7 +33,7 @@ void Update()
 {
     if (restart)
     {
-        if (Input.GetKeyDown (KeyCode.R))
+        if (Input.GetKeyDown (KeyCode.L))
         {
             SceneManager.LoadScene("Main");
         }
@@ -58,7 +58,7 @@ yield return new WaitForSeconds(spawnWait);
 yield return new WaitForSeconds(waveWait);
 if (gameOver)
 {
-    restartText.text = "Press 'R' for Restart";
+    restartText.text = "Press 'L' for Restart";
     restart = true;
     break;
 }
@@ -72,12 +72,18 @@ UpdateScore();
 }
 public void GameOver ()
 {
-    gameOverText.text = "Game Over!";
+    gameOverText.text = "Game Over! Game Created by Melisa";
     gameOver = true;
 }
 
 void UpdateScore()
-{
-ScoreText.text = "Score: " + score;
-}
+    {
+        ScoreText.text = "Points: " + score;
+        if (score >= 100)
+        {
+            gameOverText.text = "You win! Game Created By Melisa";
+            gameOver = true;
+            restart = true;
+        }
+    }
 }
