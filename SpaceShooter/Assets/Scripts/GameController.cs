@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    
+
     public AudioClip LoseClip;
     public AudioSource audioSource;
     public AudioClip MusicClip;
@@ -22,9 +24,11 @@ public class GameController : MonoBehaviour
     private bool gameOver;
     private bool restart;
     private int score;
+    
 
     void Start()
     {
+        
         gameOver = false;
         restart = false;
         restartText.text = "";
@@ -93,7 +97,7 @@ public class GameController : MonoBehaviour
                 gameOverText.text = "You win! Game Created By Melisa";
                 gameOver = true;
                 restart = true;
-                MusicSource.Play();
+                MusicSource.Play();                
          
             }
         }
