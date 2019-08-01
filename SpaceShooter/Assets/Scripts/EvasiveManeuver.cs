@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EvasiveManeuvre : MonoBehaviour
+public class EvasiveManeuver : MonoBehaviour
 {
     public float dodge;
     public float smoothing;
@@ -35,7 +35,7 @@ public class EvasiveManeuvre : MonoBehaviour
     }
 
     
-    void FivedUpdate()
+    void FixedUpdate()
     {
         float newManeuver = Mathf.MoveTowards (rb.velocity.x, targetManeuver, Time.deltaTime * smoothing);
         rb.velocity = new Vector3 (newManeuver, 0.0f, currentSpeed);
