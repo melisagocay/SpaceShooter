@@ -10,6 +10,7 @@ public class Boundary
 public class PlayerController : MonoBehaviour
 {
     private AudioSource audioSource;
+    
     public float speed;
     public float tilt;
     public Boundary boundary;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        
     }
     void Update ()
     {

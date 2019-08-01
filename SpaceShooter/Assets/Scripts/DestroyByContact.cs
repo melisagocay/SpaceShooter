@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DestroyByContact : MonoBehaviour
 {
+    
+
     private GameController gameController;
     public int scoreValue;
     public GameObject explosion;
@@ -20,6 +22,8 @@ public class DestroyByContact : MonoBehaviour
         {
             Debug.Log ("Cannot find 'GameController' script");
         }
+        
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -39,6 +43,8 @@ public class DestroyByContact : MonoBehaviour
         {
             Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
             gameController.GameOver ();
+        
+            
         }
         gameController.AddScore (scoreValue);
         Destroy(other.gameObject);

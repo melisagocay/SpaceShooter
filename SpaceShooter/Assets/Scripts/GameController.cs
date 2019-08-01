@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public AudioClip LoseClip;
+    public AudioSource audioSource;
+    public AudioClip MusicClip;
+    public AudioSource MusicSource;
     public GameObject[] hazards;
     public Vector3 spawnValues;
     public int hazardCount;
@@ -27,7 +31,9 @@ public class GameController : MonoBehaviour
         gameOverText.text = "";
         score = 0;
         UpdateScore();
-        StartCoroutine(SpawnWaves());   
+        StartCoroutine(SpawnWaves());  
+        MusicSource.clip = MusicClip; 
+        audioSource.clip = LoseClip;
     }
     void Update()
     {
@@ -62,6 +68,7 @@ public class GameController : MonoBehaviour
                     restartText.text = "Press 'L' for Restart";
                     restart = true;
                     break;
+                    
                 }
         }
     }
@@ -75,6 +82,7 @@ public class GameController : MonoBehaviour
     {
         gameOverText.text = "Game Over! Game Created by Melisa";
         gameOver = true;
+        audioSource.Play();
     }
 
     void UpdateScore()
@@ -85,6 +93,8 @@ public class GameController : MonoBehaviour
                 gameOverText.text = "You win! Game Created By Melisa";
                 gameOver = true;
                 restart = true;
+                MusicSource.Play();
+         
             }
         }
 }
