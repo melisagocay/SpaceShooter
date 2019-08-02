@@ -40,6 +40,7 @@ public class CountdownScript : MonoBehaviour
         canCount = true;
         doOnce = false;
         GameOver();
+        GameObject.Find("Button").GetComponentInChildren<Text>().text = "Reset";
     }
     void GameOver()
     {

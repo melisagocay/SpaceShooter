@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public Mover mover;
+    
     public BGScroller bgScroller;
     public AudioClip LoseClip;
     public AudioSource audioSource;
@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     public float waveWait;
 
 
+    public Text hardText;
     public Text ScoreText;
     public Text restartText;
     public Text gameOverText;
@@ -34,12 +35,15 @@ public class GameController : MonoBehaviour
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
+        hardText.text = "";
         
         score = 0;
         UpdateScore();
         StartCoroutine(SpawnWaves());  
         MusicSource.clip = MusicClip; 
         audioSource.clip = LoseClip;
+        HardText();
+    
 
         
     }
@@ -93,6 +97,11 @@ public class GameController : MonoBehaviour
         gameOver = true;
         audioSource.Play();
     }
+    
+    void HardText ()
+    {
+        hardText.text = "Press 'H' for Hard Mode.";
+    }
 
     void UpdateScore()
         {
@@ -104,7 +113,7 @@ public class GameController : MonoBehaviour
                 restart = true;
                 MusicSource.Play();  
                 bgScroller.scrollSpeed = 50f;
-                mover.speed = 50f;            
+                          
          
             }
         }
