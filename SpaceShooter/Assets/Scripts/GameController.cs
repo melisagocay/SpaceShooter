@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    
-
+    public Mover mover;
+    public BGScroller bgScroller;
     public AudioClip LoseClip;
     public AudioSource audioSource;
     public AudioClip MusicClip;
@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     public float spawnWait;
     public float startWait;
     public float waveWait;
+
 
     public Text ScoreText;
     public Text restartText;
@@ -33,11 +34,14 @@ public class GameController : MonoBehaviour
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
+        
         score = 0;
         UpdateScore();
         StartCoroutine(SpawnWaves());  
         MusicSource.clip = MusicClip; 
         audioSource.clip = LoseClip;
+
+        
     }
     void Update()
     {
@@ -50,6 +54,7 @@ public class GameController : MonoBehaviour
         }
         if (Input.GetKey("escape"))
             Application.Quit();
+        
 
     }
 
@@ -97,7 +102,9 @@ public class GameController : MonoBehaviour
                 gameOverText.text = "You win! Game Created By Melisa";
                 gameOver = true;
                 restart = true;
-                MusicSource.Play();                
+                MusicSource.Play();  
+                bgScroller.scrollSpeed = 50f;
+                mover.speed = 50f;            
          
             }
         }

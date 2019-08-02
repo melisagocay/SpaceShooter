@@ -6,6 +6,7 @@ public class BGScroller : MonoBehaviour
 {
     
     
+    
     public float scrollSpeed;
     
     public float tileSizeZ;
@@ -15,6 +16,7 @@ public class BGScroller : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
+        
     }
 
     // Update is called once per frame
